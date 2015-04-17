@@ -21,7 +21,7 @@ Remember that all parameters are optional.
 input = new InputModule.Input
 	setup: false # Change to true when positioning the input so you can see it
 	virtualKeyboard: true # Enable or disable virtual keyboard for when viewing on computer
-	text: "ajimix"
+	text: "Some text" # Remove this if you don't want to have text initially
 	placeholder: "Username"
 	placeholderColor: "#fff"
 	y: 240
