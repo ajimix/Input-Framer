@@ -24,6 +24,7 @@ input = new InputModule.Input
 	text: "Some text" # Remove this if you don't want to have text initially
 	placeholder: "Username"
 	placeholderColor: "#fff"
+	type: "text" # Use any of the available HTML input types. Take into account that on the computer the same kayboard image will appear regarding the type.
 	y: 240
 	x: 90
 	width: 500
