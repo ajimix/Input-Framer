@@ -25,6 +25,7 @@ class exports.Input extends Layer
 		options.text ?= ""
 		options.placeholder ?= ""
 		options.virtualKeyboard ?= if Utils.isMobile() then false else true
+		options.type ?= "text"
 
 		super options
 
@@ -33,6 +34,7 @@ class exports.Input extends Layer
 		@input.id = "input-#{_.now()}"
 		@input.style.cssText = "font-size: #{options.fontSize}px; line-height: #{options.lineHeight}px; padding: #{options.padding}px; width: #{options.width}px; height: #{options.height}px; border: none; outline-width: 0; background-image: url(about:blank); background-color: #{options.backgroundColor};"
 		@input.value = options.text
+		@input.type = options.type
 		@input.placeholder = options.placeholder
 		@_element.appendChild @input
 
