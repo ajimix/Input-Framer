@@ -41,3 +41,12 @@ input.style =
 	color: "white"
 	...
 ```
+
+#### Retrieving value of your input
+
+You can access directly to `.value` property to get the value. For example to get the value on each key up you could do something like this...
+
+```coffeescript
+input.on "keyup", ->
+	print @value
+```
