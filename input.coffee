@@ -31,6 +31,7 @@ class exports.Input extends Layer
 		options.placeholder ?= ""
 		options.virtualKeyboard ?= if Utils.isMobile() then false else true
 		options.type ?= "text"
+		options.goButton ?= false
 
 		super options
 
@@ -41,7 +42,13 @@ class exports.Input extends Layer
 		@input.value = options.text
 		@input.type = options.type
 		@input.placeholder = options.placeholder
-		@_element.appendChild @input
+
+		if options.goButton
+			form = document.createElement "form"
+			form.appendChild @input
+			@_element.appendChild form
+		else
+			@_element.appendChild @input
 
 		@backgroundColor = "transparent"
 		@updatePlaceholderColor options.placeholderColor if @placeholderColor

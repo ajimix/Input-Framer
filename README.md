@@ -29,6 +29,7 @@ input = new InputModule.Input
 	x: 90
 	width: 500
 	height: 60
+	goButton: false # Set true here in order to use "Go" instead of "Return" as button (only works on real devices)
 ```
 
 #### Styling your input
