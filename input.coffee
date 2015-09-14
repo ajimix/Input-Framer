@@ -1,5 +1,5 @@
 exports.keyboardLayer = new Layer
-	x:0, y:Screen.height, width:750, height:432, image:"modules/keyboard.png", visible: false
+	x:0, y:Screen.height, width:750, height:432, image:"modules/keyboard.png"
 
 exports.keyboardLayer.states.add
 	"shown": y: Screen.height - exports.keyboardLayer.height
@@ -47,8 +47,6 @@ class exports.Input extends Layer
 		@updatePlaceholderColor options.placeholderColor if @placeholderColor
 
 		if !Utils.isMobile() || options.virtualKeyboard
-			exports.keyboardLayer.visible = true
-
 			@input.addEventListener "focus", ->
 				exports.keyboardLayer.bringToFront()
 				exports.keyboardLayer.states.next()
