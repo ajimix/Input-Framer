@@ -50,3 +50,12 @@ You can access directly to `.value` property to get the value. For example to ge
 input.on "keyup", ->
 	print @value
 ```
+
+#### Focusing the input via coffeescript
+
+Imagine that you want to focus the input once you click "myButton", here is an example:
+
+```coffeescript
+myButton.on Events.Click, ->
+	input.focus()
+```

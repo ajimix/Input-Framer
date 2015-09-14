@@ -62,3 +62,6 @@ class exports.Input extends Layer
 		css = "##{@input.id}::-webkit-input-placeholder { color: #{@placeholderColor}; }"
 		@pageStyle.appendChild(document.createTextNode css)
 		document.head.appendChild @pageStyle
+
+	focus: () ->
+		@input.focus()
