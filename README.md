@@ -52,11 +52,23 @@ input.on "keyup", ->
 	print @value
 ```
 
-#### Focusing the input via coffeescript
+#### Focusing the input via code
 
 Imagine that you want to focus the input once you click "myButton", here is an example:
 
 ```coffeescript
 myButton.on Events.Click, ->
 	input.focus()
+```
+
+### [Advanced] Accessing original elements
+
+The input layer is constructed of a form and an input field. You can always access those elements by accessing directly to the properties `input` and `form`.
+
+Example:
+
+```coffeescript
+someNiceInput.form.addEventListener "submit", ->
+	print "The form was submitted"
+someNiceInput.input.something...
 ```

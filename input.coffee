@@ -42,13 +42,15 @@ class exports.Input extends Layer
 		@input.value = options.text
 		@input.type = options.type
 		@input.placeholder = options.placeholder
+		@form = document.createElement "form"
 
 		if options.goButton
-			form = document.createElement "form"
-			form.appendChild @input
-			@_element.appendChild form
-		else
-			@_element.appendChild @input
+			@form.action = "#"
+			@form.addEventListener "submit", (event) ->
+				event.preventDefault()
+
+		@form.appendChild @input
+		@_element.appendChild @form
 
 		@backgroundColor = "transparent"
 		@updatePlaceholderColor options.placeholderColor if @placeholderColor
