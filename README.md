@@ -72,3 +72,7 @@ someNiceInput.form.addEventListener "submit", ->
 	print "The form was submitted"
 someNiceInput.input.something...
 ```
+
+## Usage Example
+
+Here you can find a nice project which combines this module with other modules to create a realtime chat app prototype using Firebase: [FramerJS-Firebase-Demo](https://github.com/charleswong28/FramerJS-Firebase-Demo/)
