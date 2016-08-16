@@ -61,6 +61,18 @@ myButton.on Events.Click, ->
 	input.focus()
 ```
 
+#### Focus and Blur events
+
+You can add your own custom actions using the `onFocus` and `onBlur` helpers.
+
+```coffeescript
+input.onFocus ->
+	print "Input is focused and has the value: #{@value}"
+
+input.onBlur ->
+	print "Input lost focus"
+```
+
 ### [Advanced] Accessing original elements
 
 The input layer is constructed of a form and an input field. You can always access those elements by accessing directly to the properties `input` and `form`.
