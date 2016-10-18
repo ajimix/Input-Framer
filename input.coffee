@@ -1,8 +1,14 @@
 exports.keyboardLayer = new Layer
-	x:0, y:Screen.height, width:750, height:432, image:"modules/keyboard.png"
+	x:0, y:Screen.height, width:Screen.width, height:432
+	html:"<img style='width: 100%;' src='modules/keyboard.png'/>"
 
-exports.keyboardLayer.states.add
-	"shown": y: Screen.height - exports.keyboardLayer.height
+#screen width vs. size of image width
+growthRatio = Screen.width / 732
+imageHeight = growthRatio * 432
+
+exports.keyboardLayer.states =
+	shown: 
+		y: Screen.height - imageHeight
 
 exports.keyboardLayer.states.animationOptions =
 	curve: "spring(500,50,15)"
