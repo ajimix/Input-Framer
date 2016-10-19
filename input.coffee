@@ -61,7 +61,9 @@ class exports.Input extends Layer
 		@backgroundColor = "transparent"
 		@updatePlaceholderColor options.placeholderColor if @placeholderColor
 
-		if !Utils.isMobile() || options.virtualKeyboard
+		#only show honor virtual keyboard option when not on mobile,
+		#otherwise ignore
+		if !Utils.isMobile() && options.virtualKeyboard is true
 			@input.addEventListener "focus", ->
 				exports.keyboardLayer.bringToFront()
 				exports.keyboardLayer.states.next()
