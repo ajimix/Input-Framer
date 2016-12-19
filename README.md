@@ -19,51 +19,51 @@ Remember that all parameters are optional.
 
 
 ```coffeescript
-#Basic usage
+# Basic usage
 InputModule = require "input"
 
 input = new InputModule.Input
-	setup: true # Change to true when positioning the input so you can see it
-	y: 240 #y position
-	x: 90  # x position
-	width: 500
-	height: 60
+  setup: true # Change to true when positioning the input so you can see it
+  y: 240 # y position
+  x: 90  # x position
+  width: 500
+  height: 60
 ```
 
 ```coffeescript
-#All options
+# All options
 InputModule = require "input"
 
 input = new InputModule.Input
-	setup: false # Change to true when positioning the input so you can see it
-	virtualKeyboard: true # Enable or disable virtual keyboard for when viewing on computer
-	placeholder: "Username" #Text visible before the user type
-	placeholderColor: "#fff" #Color of the placeholder text
-	text: "Some text" # Initial text in the input
-	type: "text" # Use any of the available HTML input types. Take into account that on the computer the same keyboard image will appear regarding the type used.
-	backgroundColor: 'transparent' #e.g. '#ffffff' or 'blue'
-	fontSize: 30 #Size in px
-	lineHeight: 30 #Line height in px
-	padding: 10 #Padding in px
+  setup: false # Change to true when positioning the input so you can see it
+  virtualKeyboard: true # Enable or disable virtual keyboard for when viewing on computer
+  placeholder: "Username" # Text visible before the user type
+  placeholderColor: "#fff" # Color of the placeholder text
+  text: "Some text" # Initial text in the input
+  type: "text" # Use any of the available HTML input types. Take into account that on the computer the same keyboard image will appear regarding the type used.
+  backgroundColor: "transparent" # e.g. "#ffffff" or "blue"
+  fontSize: 30 # Size in px
+  lineHeight: 30 # Line height in px
+  padding: 10 # Padding in px
 
-	y: 240 #y position
-	x: 90  # x position
-	width: 500
-	height: 60
-	goButton: false # Set true here in order to use "Go" instead of "Return" as button (only works on real devices)
+  y: 240 # y position
+  x: 90  # x position
+  width: 500
+  height: 60
+  goButton: false # Set true here in order to use "Go" instead of "Return" as button (only works on real devices)
 ```
-		
-		
+    
+    
 #### Styling your input
 You can style many properties directly on creation or from here
 
 ```coffeescript
 input.style = 
-	fontSize: "30px"
-	lineHeight: "30px"
-	padding: "10px"
-	color: "white"
-	...
+  fontSize: "30px"
+  lineHeight: "30px"
+  padding: "10px"
+  color: "white"
+  ...
 ```
 
 #### Retrieving value of your input
@@ -72,7 +72,7 @@ You can access directly to `.value` property to get the value. For example to ge
 
 ```coffeescript
 input.on "keyup", ->
-	print @value
+  print @value
 ```
 
 #### Focusing the input via code
@@ -81,7 +81,7 @@ Imagine that you want to focus the input once you click "myButton", here is an e
 
 ```coffeescript
 myButton.on Events.Click, ->
-	input.focus()
+  input.focus()
 ```
 
 #### Focus and Blur events
@@ -90,10 +90,10 @@ You can add your own custom actions using the `onFocus` and `onBlur` helpers.
 
 ```coffeescript
 input.onFocus ->
-	print "Input is focused and has the value: #{@value}"
+  print "Input is focused and has the value: #{@value}"
 
 input.onBlur ->
-	print "Input lost focus"
+  print "Input lost focus"
 ```
 
 ### [Advanced] Accessing original elements
@@ -104,7 +104,7 @@ Example:
 
 ```coffeescript
 someNiceInput.form.addEventListener "submit", ->
-	print "The form was submitted"
+  print "The form was submitted"
 someNiceInput.input.something...
 ```
 
