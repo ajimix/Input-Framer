@@ -17,22 +17,45 @@ Framer module to easily turn your designs inputs into real inputs.
 Export your assets as you would do normally, then create an input object and place it over your designed input. Done!  
 Remember that all parameters are optional.
 
+
 ```coffeescript
+#Basic usage
+InputModule = require "input"
+
+input = new InputModule.Input
+	setup: true # Change to true when positioning the input so you can see it
+	y: 240 #y position
+	x: 90  # x position
+	width: 500
+	height: 60
+```
+
+```coffeescript
+#All options
+InputModule = require "input"
+
 input = new InputModule.Input
 	setup: false # Change to true when positioning the input so you can see it
 	virtualKeyboard: true # Enable or disable virtual keyboard for when viewing on computer
-	text: "Some text" # Remove this if you don't want to have text initially
-	placeholder: "Username"
-	placeholderColor: "#fff"
+	placeholder: "Username" #Text visible before the user type
+	placeholderColor: "#fff" #Color of the placeholder text
+	text: "Some text" # Initial text in the input
 	type: "text" # Use any of the available HTML input types. Take into account that on the computer the same keyboard image will appear regarding the type used.
-	y: 240
-	x: 90
+	backgroundColor: 'transparent' #e.g. '#ffffff' or 'blue'
+	fontSize: 30 #Size in px
+	lineHeight: 30 #Line height in px
+	padding: 10 #Padding in px
+
+	y: 240 #y position
+	x: 90  # x position
 	width: 500
 	height: 60
 	goButton: false # Set true here in order to use "Go" instead of "Return" as button (only works on real devices)
 ```
-
+		
+		
 #### Styling your input
+You can style many properties directly on creation or from here
 
 ```coffeescript
 input.style = 
