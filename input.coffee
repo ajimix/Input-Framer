@@ -44,7 +44,7 @@ class exports.Input extends Layer
 		@placeholderColor = options.placeholderColor if options.placeholderColor?
 		@input = document.createElement "input"
 		@input.id = "input-#{_.now()}"
-		@input.style.cssText = "font-size: #{options.fontSize}px; line-height: #{options.lineHeight}px; padding: #{options.padding}px; width: #{options.width}px; height: #{options.height}px; border: none; outline-width: 0; background-image: url(about:blank); background-color: #{options.backgroundColor};"
+		@input.style.cssText = "outline: none; font-size: #{options.fontSize}px; line-height: #{options.lineHeight}px; padding: #{options.padding}px; width: #{options.width}px; height: #{options.height}px; border: none; background-image: url(about:blank); background-color: #{options.backgroundColor};"
 		@input.value = options.text
 		@input.type = options.type
 		@input.placeholder = options.placeholder
