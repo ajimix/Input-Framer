@@ -38,6 +38,10 @@ class exports.Input extends Layer
 		options.virtualKeyboard ?= if Utils.isMobile() then false else true
 		options.type ?= "text"
 		options.goButton ?= false
+		options.autoCorrect ?= "on"
+		options.autoComplete ?= "on"
+		options.autoCapitalize ?= "on"
+		options.spellCheck ?= "on"
 
 		super options
 
@@ -48,6 +52,10 @@ class exports.Input extends Layer
 		@input.value = options.text
 		@input.type = options.type
 		@input.placeholder = options.placeholder
+		@input.setAttribute "autocorrect", options.autoCorrect
+		@input.setAttribute "autocomplete", options.autoComplete
+		@input.setAttribute "autocapitalize", options.autoCapitalize
+		@input.setAttribute "spellcheck", options.spellCheck
 		@form = document.createElement "form"
 
 		if options.goButton
