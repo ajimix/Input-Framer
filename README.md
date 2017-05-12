@@ -103,11 +103,23 @@ The input layer is constructed of a form and an input field. You can always acce
 Example:
 
 ```coffeescript
-someNiceInput.form.addEventListener "submit", ->
-  print "The form was submitted"
+Events.wrap(someNiceInput.form).addEventListener "submit", ->
+	print "The form was submitted"
 someNiceInput.input.something...
 ```
 
-## Usage Example
+### [Advanced] Preventing for form submission on enter
+
+If you are prototyping for the computer, you'll see that the input submits the form behind, once you press the enter key. You can easily prevent that from happening by using he following snippet: 
+
+```coffeescript
+Events.wrap(someNiceInput.form).addEventListener "submit", (event) ->
+	event.preventDefault()
+```
+
+## Usage Examples
 
 Here you can find a nice project which combines this module with other modules to create a realtime chat app prototype using Firebase: [FramerJS-Firebase-Demo](https://github.com/charleswong28/FramerJS-Firebase-Demo/)
+
+If you have done something cool and want to show it, just make a pull request to the project :)
+
