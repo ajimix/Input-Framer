@@ -42,6 +42,7 @@ class exports.Input extends Layer
 		options.autoComplete ?= "on"
 		options.autoCapitalize ?= "on"
 		options.spellCheck ?= "on"
+		options.autofocus ?= false
 
 		super options
 
@@ -55,6 +56,7 @@ class exports.Input extends Layer
 		@input.setAttribute "autocorrect", options.autoCorrect
 		@input.setAttribute "autocomplete", options.autoComplete
 		@input.setAttribute "autocapitalize", options.autoCapitalize
+		@input.setAttribute "autofocus", options.autofocus
 		@input.setAttribute "spellcheck", options.spellCheck
 		@form = document.createElement "form"
 
