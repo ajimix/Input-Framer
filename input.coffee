@@ -74,9 +74,9 @@ class exports.Input extends Layer
 		if !Utils.isMobile() && options.virtualKeyboard is true
 			@input.addEventListener "focus", ->
 				exports.keyboardLayer.bringToFront()
-				exports.keyboardLayer.states.next()
+				exports.keyboardLayer.stateCycle()
 			@input.addEventListener "blur", ->
-				exports.keyboardLayer.states.switch "default"
+				exports.keyboardLayer.animate("default")
 
 	updatePlaceholderColor: (color) ->
 		@placeholderColor = color
