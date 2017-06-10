@@ -45,6 +45,7 @@ input = new InputModule.Input
   fontSize: 30 # Size in px
   lineHeight: 30 # Line height in px
   padding: 10 # Padding in px
+  autofocus: false # Change to true to enable autofocus
 
   y: 240 # y position
   x: 90  # x position
