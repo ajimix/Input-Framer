@@ -58,7 +58,6 @@ class exports.Input extends Layer
 		@input.setAttribute "autocapitalize", options.autoCapitalize
 		if options.autofocus == true
 			@input.setAttribute "autofocus", true
-		@input.setAttribute "autofocus", options.autofocus
 		@input.setAttribute "spellcheck", options.spellCheck
 		@form = document.createElement "form"
 
