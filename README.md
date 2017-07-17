@@ -14,7 +14,7 @@ Framer module to easily turn your designs inputs into real inputs.
 
 ## How to use it
 
-Export your assets as you would do normally, then create an input object and place it over your designed input. Done!  
+Export your assets as you would do normally, then create an input object and place it over your designed input. Done!
 Remember that all parameters are optional.
 
 
@@ -43,8 +43,8 @@ input = new InputModule.Input
   type: "text" # Use any of the available HTML input types. Take into account that on the computer the same keyboard image will appear regarding the type used.
   backgroundColor: "transparent" # e.g. "#ffffff" or "blue"
   fontSize: 30 # Size in px
-  lineHeight: 30 # Line height in px
-  padding: 10 # Padding in px
+  lineHeight: 1 # Line height in em
+  padding: 10 # Padding in px, multiple values are also supported via string, e.g. "10 5 16 2"
   autofocus: false # Change to true to enable autofocus
 
   y: 240 # y position
@@ -53,13 +53,13 @@ input = new InputModule.Input
   height: 60
   goButton: false # Set true here in order to use "Go" instead of "Return" as button (only works on real devices)
 ```
-    
-    
+
+
 #### Styling your input
 You can style many properties directly on creation or from here
 
 ```coffeescript
-input.style = 
+input.style =
   fontSize: "30px"
   lineHeight: "30px"
   padding: "10px"
@@ -111,7 +111,7 @@ someNiceInput.input.something...
 
 ### [Advanced] Preventing for form submission on enter
 
-If you are prototyping for the computer, you'll see that the input submits the form behind, once you press the enter key. You can easily prevent that from happening by using he following snippet: 
+If you are prototyping for the computer, you'll see that the input submits the form behind, once you press the enter key. You can easily prevent that from happening by using he following snippet:
 
 ```coffeescript
 Events.wrap(someNiceInput.form).addEventListener "submit", (event) ->
