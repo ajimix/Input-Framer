@@ -6,8 +6,61 @@ exports.keyboardLayer = new Layer
 growthRatio = Screen.width / 732
 imageHeight = growthRatio * 432
 
+# Extends the LayerStyle class which does the pixel ratio calculations in framer
+_inputStyle =
+	Object.assign({}, Framer.LayerStyle,
+		calculatePixelRatio = (layer, value) ->
+			(value * layer.context.pixelMultiplier) + "px"
+
+		fontSize: (layer) ->
+			calculatePixelRatio(layer, layer._properties.fontSize)
+
+		lineHeight: (layer) ->
+			(layer._properties.lineHeight) + "em"
+
+		padding: (layer) ->
+			{ pixelMultiplier } = layer.context
+			padding = []
+			paddingValue = layer._properties.padding
+
+			# Check if we have a single number as integer
+			if Number.isInteger(paddingValue)
+				return calculatePixelRatio(layer, paddingValue)
+
+			# If we have multiple values they come as string (e.g. "1 2 3 4")
+			paddingValues = layer._properties.padding.split(" ")
+
+			switch paddingValues.length
+				when 4
+					padding.top = parseFloat(paddingValues[0])
+					padding.right = parseFloat(paddingValues[1])
+					padding.bottom = parseFloat(paddingValues[2])
+					padding.left = parseFloat(paddingValues[3])
+
+				when 3
+					padding.top = parseFloat(paddingValues[0])
+					padding.right = parseFloat(paddingValues[1])
+					padding.bottom = parseFloat(paddingValues[2])
+					padding.left = parseFloat(paddingValues[1])
+
+				when 2
+					padding.top = parseFloat(paddingValues[0])
+					padding.right = parseFloat(paddingValues[1])
+					padding.bottom = parseFloat(paddingValues[0])
+					padding.left = parseFloat(paddingValues[1])
+
+				else
+					padding.top = parseFloat(paddingValues[0])
+					padding.right = parseFloat(paddingValues[0])
+					padding.bottom = parseFloat(paddingValues[0])
+					padding.left = parseFloat(paddingValues[0])
+
+			# Return as 4-value string (e.g "1px 2px 3px 4px")
+			"#{padding.top * pixelMultiplier}px #{padding.right * pixelMultiplier}px #{padding.bottom * pixelMultiplier}px #{padding.left * pixelMultiplier}px"
+	)
+
 exports.keyboardLayer.states =
-	shown: 
+	shown:
 		y: Screen.height - imageHeight
 
 exports.keyboardLayer.states.animationOptions =
@@ -31,7 +84,7 @@ class exports.Input extends Layer
 		options.height ?= 60
 		options.backgroundColor ?= if options.setup then "rgba(255, 60, 47, .5)" else "transparent"
 		options.fontSize ?= 30
-		options.lineHeight ?= 30
+		options.lineHeight ?= 1
 		options.padding ?= 10
 		options.text ?= ""
 		options.placeholder ?= ""
@@ -46,10 +99,25 @@ class exports.Input extends Layer
 
 		super options
 
+		# Add additional properties
+		@_properties.fontSize = options.fontSize
+		@_properties.lineHeight = options.lineHeight
+		@_properties.padding = options.padding
+
 		@placeholderColor = options.placeholderColor if options.placeholderColor?
 		@input = document.createElement "input"
 		@input.id = "input-#{_.now()}"
-		@input.style.cssText = "outline: none; font-size: #{options.fontSize}px; line-height: #{options.lineHeight}px; padding: #{options.padding}px; width: #{options.width}px; height: #{options.height}px; border: none; background-image: url(about:blank); background-color: #{options.backgroundColor};"
+
+		# Add styling to the input element
+		@input.style.width = _inputStyle["width"](@)
+		@input.style.height = _inputStyle["height"](@)
+		@input.style.fontSize = _inputStyle["fontSize"](@)
+		@input.style.lineHeight = _inputStyle["lineHeight"](@)
+		@input.style.outline = "none"
+		@input.style.border = "none"
+		@input.style.backgroundColor = options.backgroundColor
+		@input.style.padding = _inputStyle["padding"](@)
+
 		@input.value = options.text
 		@input.type = options.type
 		@input.placeholder = options.placeholder
