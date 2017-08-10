@@ -40,9 +40,12 @@ input = new InputModule.Input
   placeholder: "Username" # Text visible before the user type
   placeholderColor: "#fff" # Color of the placeholder text
   text: "Some text" # Initial text in the input
+  textColor: "#000" # Color of the input text
   type: "text" # Use any of the available HTML input types. Take into account that on the computer the same keyboard image will appear regarding the type used.
   backgroundColor: "transparent" # e.g. "#ffffff" or "blue"
   fontSize: 30 # Size in px
+  fontFamily: "-apple-system" # Font family for placeholder and input text
+  fontWeight: "500" # Font weight for placeholder and input text
   lineHeight: 1 # Line height in em
   padding: 10 # Padding in px, multiple values are also supported via string, e.g. "10 5 16 2"
   autofocus: false # Change to true to enable autofocus
