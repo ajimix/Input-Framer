@@ -96,6 +96,8 @@ class exports.Input extends Layer
 		options.autoCapitalize ?= "on"
 		options.spellCheck ?= "on"
 		options.autofocus ?= false
+		options.textColor ?= "#000"
+		options.fontFamily ?= "-apple-system"
 
 		super options
 
@@ -117,6 +119,8 @@ class exports.Input extends Layer
 		@input.style.border = "none"
 		@input.style.backgroundColor = options.backgroundColor
 		@input.style.padding = _inputStyle["padding"](@)
+		@input.style.fontFamily = options.fontFamily
+		@input.style.color = options.textColor
 
 		@input.value = options.text
 		@input.type = options.type
