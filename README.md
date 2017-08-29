@@ -49,12 +49,13 @@ input = new InputModule.Input
   lineHeight: 1 # Line height in em
   padding: 10 # Padding in px, multiple values are also supported via string, e.g. "10 5 16 2"
   autofocus: false # Change to true to enable autofocus
+  goButton: false # Set true here in order to use "Go" instead of "Return" as button (only works on real devices)
+  submit: false # Change to true if you want to enable form submission
 
   y: 240 # y position
   x: 90  # x position
   width: 500
   height: 60
-  goButton: false # Set true here in order to use "Go" instead of "Return" as button (only works on real devices)
 ```
 
 
@@ -112,18 +113,8 @@ Events.wrap(someNiceInput.form).addEventListener "submit", ->
 someNiceInput.input.something...
 ```
 
-### [Advanced] Preventing for form submission on enter
-
-If you are prototyping for the computer, you'll see that the input submits the form behind, once you press the enter key. You can easily prevent that from happening by using he following snippet:
-
-```coffeescript
-Events.wrap(someNiceInput.form).addEventListener "submit", (event) ->
-	event.preventDefault()
-```
-
 ## Usage Examples
 
 Here you can find a nice project which combines this module with other modules to create a realtime chat app prototype using Firebase: [FramerJS-Firebase-Demo](https://github.com/charleswong28/FramerJS-Firebase-Demo/)
 
 If you have done something cool and want to show it, just make a pull request to the project :)
-

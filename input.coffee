@@ -99,6 +99,7 @@ class exports.Input extends Layer
 		options.textColor ?= "#000"
 		options.fontFamily ?= "-apple-system"
 		options.fontWeight ?= "500"
+		options.submit ?= false
 
 		super options
 
@@ -135,7 +136,7 @@ class exports.Input extends Layer
 		@input.setAttribute "spellcheck", options.spellCheck
 		@form = document.createElement "form"
 
-		if options.goButton
+		if (options.goButton && !options.submit) || !options.submit
 			@form.action = "#"
 			@form.addEventListener "submit", (event) ->
 				event.preventDefault()
