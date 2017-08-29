@@ -1,0 +1,12 @@
+{
+  "name": "Input Framer",
+  "description": "Add inputs to your prototypes and easily turn your designs inputs into real inputs",
+  "author": "Adria Jimenez",
+  "require": "InputModule = require 'input'",
+  "install": [
+    "input.coffee",
+    "keyboard.png"
+  ],
+  "example": "example.coffee",
+  "thumb": "img/input-big.gif"
+}

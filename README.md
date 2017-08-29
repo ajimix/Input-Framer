@@ -6,11 +6,19 @@ Framer module to easily turn your designs inputs into real inputs.
 
 ## Add it in your Framer Studio project
 
+### Install it with Framer Modules
+
+<a href='https://open.framermodules.com/input-framer'>
+  <img alt='Install with Framer Modules' src='https://www.framermodules.com/assets/badge@2x.png' width='160' height='40' />
+</a>
+
+### Or install it manually
+
 - Download the project from github.
 - Copy `input.coffee` and `keyboard.png` into `modules/` folder.
 - Import it in Framer Studio by writing: `InputModule = require "input"`.
 
-**Note:** `keyboard.png` is prepared for iPhone 6. If you want to use a different size, replace with your own image.
+**Note:** `keyboard.png` is prepared for iPhone 7. If you want to use a different size, replace with your own image.
 
 ## How to use it
 
