@@ -55,6 +55,7 @@ input = new InputModule.Input
   fontFamily: "-apple-system" # Font family for placeholder and input text
   fontWeight: "500" # Font weight for placeholder and input text
   lineHeight: 1 # Line height in em
+  tabIndex: 5 # Tab index for the input (default is 0)
   padding: 10 # Padding in px, multiple values are also supported via string, e.g. "10 5 16 2"
   autofocus: false # Change to true to enable autofocus
   goButton: false # Set true here in order to use "Go" instead of "Return" as button (only works on real devices)

@@ -100,6 +100,7 @@ class exports.Input extends Layer
 		options.fontFamily ?= "-apple-system"
 		options.fontWeight ?= "500"
 		options.submit ?= false
+		options.tabIndex ?= 0
 
 		super options
 
@@ -128,6 +129,7 @@ class exports.Input extends Layer
 		@input.value = options.text
 		@input.type = options.type
 		@input.placeholder = options.placeholder
+		@input.setAttribute "tabindex", options.tabindex
 		@input.setAttribute "autocorrect", options.autoCorrect
 		@input.setAttribute "autocomplete", options.autoComplete
 		@input.setAttribute "autocapitalize", options.autoCapitalize
