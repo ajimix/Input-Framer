@@ -82,7 +82,7 @@ class exports.Input extends Layer
 		options.width ?= Screen.width
 		options.clip ?= false
 		options.height ?= 60
-		options.backgroundColor ?= if options.setup then "rgba(255, 60, 47, .5)" else "transparent"
+		options.backgroundColor ?= if options.setup then "rgba(255, 60, 47, .5)" else "rgba(255, 255, 255, .01)" # "transparent" seems to cause a bug in latest safari version
 		options.fontSize ?= 30
 		options.lineHeight ?= 1
 		options.padding ?= 10
