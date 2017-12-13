@@ -98,6 +98,15 @@ myButton.on Events.Click, ->
   input.focus()
 ```
 
+#### Blur the input via code
+
+To blur the input use the offFocus method:
+
+```coffeescript
+myButton.on Events.Click, ->
+  input.offFocus()
+```
+
 #### Focus and Blur events
 
 You can add your own custom actions using the `onFocus` and `onBlur` helpers.
