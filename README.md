@@ -60,7 +60,8 @@ input = new InputModule.Input
   autofocus: false # Change to true to enable autofocus
   goButton: false # Set true here in order to use "Go" instead of "Return" as button (only works on real devices)
   submit: false # Change to true if you want to enable form submission
-
+  textarea: true # Use textarea instead of input
+  
   y: 240 # y position
   x: 90  # x position
   width: 500
@@ -89,25 +90,24 @@ input.on "keyup", ->
   print @value
 ```
 
-#### Focusing the input via code
+#### Focusing and Unfocusing the input via code
 
-Imagine that you want to focus the input once you click "myButton", here is an example:
+Imagine that you want to `focus` the input once you click "myButton", here is an example:
 
 ```coffeescript
 myButton.on Events.Click, ->
   input.focus()
-```
+```  
 
-#### Blur the input via code
-
-To blur the input use the offFocus method:
+Imagine that you want to `unfocus` the input once you press enter, here is an example:
 
 ```coffeescript
-myButton.on Events.Click, ->
-  input.offFocus()
+input.on 'keyup', (e) ->
+  if e.keyCode == 13
+    input.unfocus()
 ```
 
-#### Focus and Blur events
+#### Focus and Blur(Unfocus) events
 
 You can add your own custom actions using the `onFocus` and `onBlur` helpers.
 
@@ -116,6 +116,9 @@ input.onFocus ->
   print "Input is focused and has the value: #{@value}"
 
 input.onBlur ->
+  print "Input lost focus"
+  
+input.onUnfocus ->
   print "Input lost focus"
 ```
 
