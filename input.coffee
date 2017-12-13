@@ -101,6 +101,7 @@ class exports.Input extends Layer
 		options.fontWeight ?= "500"
 		options.submit ?= false
 		options.tabIndex ?= 0
+		options.textArea ?= false
 
 		super options
 
@@ -110,7 +111,7 @@ class exports.Input extends Layer
 		@_properties.padding = options.padding
 
 		@placeholderColor = options.placeholderColor if options.placeholderColor?
-		@input = document.createElement "input"
+		@input = document.createElement if options.textArea then 'textarea' else 'input'
 		@input.id = "input-#{_.now()}"
 
 		# Add styling to the input element
@@ -171,7 +172,7 @@ class exports.Input extends Layer
 	focus: () ->
 		@input.focus()
 
-	blur: () ->
+	_blur: () ->
 		@input.blur()
 
 	onFocus: (cb) ->
