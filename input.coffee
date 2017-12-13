@@ -171,6 +171,9 @@ class exports.Input extends Layer
 	focus: () ->
 		@input.focus()
 
+	blur: () ->
+		@input.blur()
+
 	onFocus: (cb) ->
 		@input.addEventListener "focus", ->
 			cb.apply(@)
