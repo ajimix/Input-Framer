@@ -117,9 +117,6 @@ input.onFocus ->
 
 input.onBlur ->
   print "Input lost focus"
-  
-input.onUnfocus ->
-  print "Input lost focus"
 ```
 
 ### [Advanced] Accessing original elements
