@@ -61,6 +61,7 @@ input = new InputModule.Input
   goButton: false # Set true here in order to use "Go" instead of "Return" as button (only works on real devices)
   submit: false # Change to true if you want to enable form submission
   textarea: true # Use textarea instead of input
+  disabled: true # disable input (inactive)
   
   y: 240 # y position
   x: 90  # x position
@@ -118,6 +119,14 @@ input.onFocus ->
 input.onBlur ->
   print "Input lost focus"
 ```
+
+#### Disable and Enable Input
+
+```coffeescript
+input.disable() // disable input (inactive)
+input.enable() // enable input (active)
+```
+
 
 ### [Advanced] Accessing original elements
 
