@@ -102,6 +102,7 @@ class exports.Input extends Layer
 		options.submit ?= false
 		options.tabIndex ?= 0
 		options.textarea ?= false
+		options.disabled ?= false
 
 		super options
 
@@ -134,6 +135,8 @@ class exports.Input extends Layer
 		@input.setAttribute "autocorrect", options.autoCorrect
 		@input.setAttribute "autocomplete", options.autoComplete
 		@input.setAttribute "autocapitalize", options.autoCapitalize
+		if options.disabled == true
+			@input.setAttribute "disabled", true
 		if options.autofocus == true
 			@input.setAttribute "autofocus", true
 		@input.setAttribute "spellcheck", options.spellCheck
@@ -184,3 +187,10 @@ class exports.Input extends Layer
 			cb.apply(@)
 
 	onUnfocus: this.onBlur
+	
+	disable: () ->
+		@input.setAttribute "disabled", true
+
+	enable: () =>
+		@input.removeAttribute "disabled", true
+	
