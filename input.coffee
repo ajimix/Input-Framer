@@ -103,6 +103,7 @@ class exports.Input extends Layer
 		options.tabIndex ?= 0
 		options.textarea ?= false
 		options.disabled ?= false
+		options.letterSpacing ?= 0
 
 		super options
 
@@ -127,6 +128,7 @@ class exports.Input extends Layer
 		@input.style.fontFamily = options.fontFamily
 		@input.style.color = options.textColor
 		@input.style.fontWeight = options.fontWeight
+		@input.style.letterSpacing = options.letterSpacing
 
 		@input.value = options.text
 		@input.type = options.type
