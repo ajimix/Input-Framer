@@ -61,6 +61,7 @@ input = new InputModule.Input
   goButton: false # Set true here in order to use "Go" instead of "Return" as button (only works on real devices)
   submit: false # Change to true if you want to enable form submission
   textarea: true # Use textarea instead of input
+  letterSpacing: 0 # Letter spacing
   disabled: true # disable input (inactive)
   
   y: 240 # y position
